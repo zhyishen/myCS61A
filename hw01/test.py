@@ -1,9 +1,30 @@
-from operator import add, sub
+def hailstone(n):
+    """Print the hailstone sequence starting at n and return its
+    length.
 
-def a_plus_abs_b(a, b):
+    >>> a = hailstone(10)
+    10
+    5
+    16
+    8
+    4
+    2
+    1
+    >>> a
+    7
+    """
+    i = 1
+    while n>1:
+        if n%2 == 0:
+            print(n)
+            n //= 2
+            i += 1
+        else:
+            print(n)
+            n = 3*n +1
+            i += 1
+    print(n)
+    return i
     
-    if b < 0:
-        f = sub(a, b)
-    else:
-        f = add(a, b)
-    return f
+
+

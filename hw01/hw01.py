@@ -50,7 +50,13 @@ def largest_factor(n):
     >>> largest_factor(13) # factor is 1 since 13 is prime
     1
     """
-    "*** YOUR CODE HERE ***"
+    max = 1
+    for i in range(1,n-1):
+        if n%i==0:
+            max = i
+    return max
+
+
 
 
 def if_function(condition, true_result, false_result):
@@ -95,13 +101,13 @@ def with_if_function():
     return if_function(cond(), true_func(), false_func())
 
 def cond():
-    "*** YOUR CODE HERE ***"
+    return False
 
 def true_func():
-    "*** YOUR CODE HERE ***"
+    print(42)
 
 def false_func():
-    "*** YOUR CODE HERE ***"
+    print(47)
 
 
 def hailstone(n):
@@ -119,5 +125,18 @@ def hailstone(n):
     >>> a
     7
     """
-    "*** YOUR CODE HERE ***"
+    i = 1
+    while n>1:
+        if n%2 == 0:
+            print(n)
+            n //= 2
+            i += 1
+        else:
+            print(n)
+            n = 3*n +1
+            i += 1
+    print(n)
+    return i
+    
+
 
