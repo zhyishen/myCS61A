@@ -170,15 +170,15 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
     while score0 < goal and score1 < goal:
         if not who :
             score0 += take_turn(strategy0(score0,score1),score1,dice)
-            while extra_turn(score0,score1) and score0 < goal:
-                score0 += take_turn(strategy0(score0,score1),score1,dice)
             
         if who :
             score1 += take_turn(strategy1(score1,score0),score0,dice)
-            while extra_turn(score1,score0) and score1 < goal:
-                score1 += take_turn(strategy1(score1,score0),score0,dice)
-        who = other(who)
 
+        who = other(who)
+        if (extra_turn(score0,score1) and score0 < goal):
+            who = 0  
+        if (extra_turn(score1,score0) and score1 < goal):
+            who = 1
 
     # END PROBLEM 5
     # (note that the indentation for the problem 6 prompt (***YOUR CODE HERE***) might be misleading)
@@ -186,11 +186,13 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
         say = say(score0, score1)
     # END PROBLEM 6
     return score0, score1
-
+def total(s0, s1):
+    print(s0 + s1)
+    return echo
 
 def echo(s0, s1):
     print(s0, s1)
-    return echo
+    return total
 
 #######################
 # Phase 2: Commentary #
@@ -271,7 +273,9 @@ def announce_highest(who, last_score=0, running_high=0):
     """
     assert who == 0 or who == 1, 'The who argument should indicate a player.'
     # BEGIN PROBLEM 7
-    "*** YOUR CODE HERE ***"
+    
+
+    print(" point(s)! The most yet for Player ",who)
     # END PROBLEM 7
 
 
