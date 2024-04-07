@@ -344,6 +344,7 @@ def max_scoring_num_rolls(dice=six_sided, trials_count=1000):
         result = make_averaged(roll_dice,trials_count)(i,dice)
         if result>highest:
             rolltimes = i
+            highest = result
     return rolltimes
     # END PROBLEM 9
 
