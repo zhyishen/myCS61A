@@ -273,24 +273,13 @@ def announce_highest(who, last_score=0, running_high=0):
     """
     assert who == 0 or who == 1, 'The who argument should indicate a player.'
     # BEGIN PROBLEM 7
-    if who:
-        def say(score0,score1):
-            this_high = score1 - last_score
-            this_diff = this_high - running_high
-            if this_diff>0:
-                print(this_high,"point(s)! The most yet for Player",who)
-                return announce_highest(1, score1, this_high)
-            return announce_highest(1, score1, running_high)
-        return say
-    else:
-        def say(score0,score1):
-            this_high = score0 - last_score
-            this_diff = this_high - running_high
-            if this_diff>0:
-                print(this_high,"point(s)! The most yet for Player",who)
-                return announce_highest(0, score0, this_high)
-            return announce_highest(0, score0, running_high)
-        return say
+    def say(*scores):
+        high = scores[who] - last_score
+        if high > running_high:
+            print(high,"point(s)! The most yet for Player",who)
+            return announce_highest(who, scores[who], high)
+        return announce_highest(who, scores[who], running_high)
+    return say
     # END PROBLEM 7
 
 
