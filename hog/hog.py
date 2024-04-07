@@ -173,13 +173,13 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
             
         if who :
             score1 += take_turn(strategy1(score1,score0),score0,dice)
-
+        
         who = other(who)
-        if (extra_turn(score0,score1) and score0 < goal):
+        if (extra_turn(score0,score1) and who and score0 < goal):
             who = 0  
-        if (extra_turn(score1,score0) and score1 < goal):
+        elif (extra_turn(score1,score0) and not who and score1 < goal):
             who = 1
-
+        
     # END PROBLEM 5
     # (note that the indentation for the problem 6 prompt (***YOUR CODE HERE***) might be misleading)
     # BEGIN PROBLEM 6
