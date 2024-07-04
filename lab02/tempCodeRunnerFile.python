@@ -1,0 +1,5 @@
+def print_delayed(x):
+    def print_forward(y):
+        print(x)
+        return print_delayed(y)
+    return print_delayed

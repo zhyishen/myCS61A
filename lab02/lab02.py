@@ -87,7 +87,9 @@ def composite_identity(f, g):
     False
     """
     "*** YOUR CODE HERE ***"
-
+    def function_return(x):
+        return f(g(x)) == g(f(x))
+    return function_return
 
 
 def cycle(f1, f2, f3):
@@ -118,3 +120,4 @@ def cycle(f1, f2, f3):
     """
     "*** YOUR CODE HERE ***"
 
+    

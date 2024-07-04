@@ -2,3 +2,4 @@
 'count_cond-correct', (512, 66)
 'Lambda the Free-correct', (1024, 66)
 'Higher Order Functions-correct', (1536, 66)
+'composite_identity-correct', (2048, 66)
