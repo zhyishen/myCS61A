@@ -22,7 +22,15 @@ def num_eights(x):
     ...       ['Assign', 'AugAssign'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    if x == 0:
+        return 0
+    else:
+        if x%10 == 8:
+            return 1 + num_eights(x//10)
+        else:
+            return num_eights(x//10)
+    
+
 
 
 def pingpong(n):
@@ -57,7 +65,17 @@ def pingpong(n):
     >>> check(HW_SOURCE_FILE, 'pingpong', ['Assign', 'AugAssign'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    def pingpong_state(i, result, flag):
+        if n == 1:
+            return 1 
+        elif i==n:
+            return result
+        else:
+            if (i % 8 == 0 ) or num_eights(i):
+                return pingpong_state(i + 1, result - flag, -flag)
+            else:
+                return pingpong_state(i + 1, result + flag, flag)
+    return pingpong_state(1, 1, 1)
 
 
 def missing_digits(n):
@@ -87,7 +105,21 @@ def missing_digits(n):
     >>> check(HW_SOURCE_FILE, 'missing_digits', ['While', 'For'])
     True
     """
-    "*** YOUR CODE HERE ***"
+    
+    def missing_digits_help(n, last = -1, this = 0):
+        if n == 0:
+            return 0
+        else:
+            if last == -1:
+                last = n%10
+            this = n%10
+            if (last - this)//2:
+                return (last - this -1) + missing_digits_help(n//10, this, n%10)
+            else:
+                return missing_digits_help(n//10, this, n%10)
+    return missing_digits_help(n)
+        
+            
 
 
 def next_largest_coin(coin):
@@ -123,7 +155,16 @@ def count_coins(total):
     >>> check(HW_SOURCE_FILE, 'count_coins', ['While', 'For'])                                          
     True
     """
-    "*** YOUR CODE HERE ***"
+    
+    if
+    else:
+        
+
+
+
+
+
+
 
 
 from operator import sub, mul
